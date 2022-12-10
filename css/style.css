@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background-image: linear-gradient(to right, #36D1DC, #5B86E5);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 62.5%;
+}
+
+.container {
+    width: 35%;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    box-shadow: 1px 1px 25px black;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.container h1 {
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    line-height: 4rem;
+}
+
+.container .nick {
+    font-size: 3rem;
+    color: #36D1DC;
+}
+
+.row {
+    width: 70%;
+    height: 6rem;
+    display: flex;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.name {
+    width: 70%;
+    border: none;
+    padding: 10px;
+    font-size: 1.6rem;
+    outline: 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+}
+
+.btn {
+    width: 30%;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: #36D1DC;
+    border-left: 2px solid black;
+}
+
+/* Extra small devices (portraint phones) */
+@media (max-width: 575px) {
+
+    body,
+    html {
+        font-size: 50%;
+    }
+}
+
+/* Small devices (Landscape Phones) */
+@media (max-width: 767px) {}
+
+/* Medium devices (Tablets) */
+@media (max-width: 991px) {
+    .container {
+        width: 80%;
+    }
+}
+
+/* Large devices (Desktops) */
+@media (max-width: 1199px) {}

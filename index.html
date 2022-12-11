@@ -22,25 +22,26 @@
 
 
     <div id="perguntas">
-        <h2>Pergunta N°1</h2>
-        <div class="pergunta">
-            Qual minha cor favorita?
+        <h2 id="numero-pergunta">Pergunta N°1</h2>
+        <div class="pergunta" id="pergunta">
+            Qual a minha cor favorita?
         </div>
-        <button id="botao1" class="opcao primeira" type="submit" name="res">
-            <span class="botao">A</span>
+        <button id="botao1" class="opcao primeira" type="submit" name="res" onclick="verificaAlternativa('botao1')">
             Preto
+            <span class="botao">A</span>
         </button>
-        <button id="botao2" class="opcao" type="submit" name="res">
-            <span class="botao">B</span>
+        <button id="botao2" class="opcao" type="submit" name="res" onclick="verificaAlternativa('botao2')">
             Branco
+            <span class="botao">B</span>
         </button>
-        <button id="botao3" class="opcao" type="submit" name="res">
-            <span class="botao">C</span>
+        <button id="botao3" class="opcao" type="submit" name="res" onclick="verificaAlternativa('botao3')">
             Ciano
+            <span class="botao">C</span>
         </button>
-        <button id="botao4" class="opcao" type="submit" name="res">
-            <span class="botao">D</span>
+        <button id="botao4" class="opcao" type="submit" name="res" onclick="verificaAlternativa('botao4')">
             Roxo
+            <span class="botao">D</span>
+
         </button>
     </div>
 

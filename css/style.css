@@ -101,6 +101,7 @@ body {
 }
 
 #perguntas h2 {
+    font-size: 1.8rem;
     text-align: left;
     padding: 2rem;
 }
@@ -194,11 +195,15 @@ body {
 /* Medium devices (Tablets) */
 @media (max-width: 991px) {
     .container {
-        width: 80%;
+        width: 90%;
     }
 
     #perguntas {
-        width: 80%;
+        width: 90%;
+    }
+
+    .botao {
+        width: 20%;
     }
 }
 

@@ -12,12 +12,36 @@
 
 <body>
 
-    <div class="container">
+    <div class="container" id="container">
         <h1>Bem-vindo ao quiz de <br><span class="nick">theking698</span></h1>
         <div class="row">
             <input type="text" placeholder="Seu nome é" class="name">
-            <button class="btn"><i class="fa-solid fa-arrow-right"></i></button>
+            <button class="btn" onclick='botaoIniciar()'><i class="fa-solid fa-arrow-right"></i></button>
         </div>
+    </div>
+
+
+    <div id="perguntas">
+        <h2>Pergunta N°1</h2>
+        <div class="pergunta">
+            Qual minha cor favorita?
+        </div>
+        <button id="botao1" class="opcao primeira" type="submit" name="res">
+            <span class="botao">A</span>
+            Preto
+        </button>
+        <button id="botao2" class="opcao" type="submit" name="res">
+            <span class="botao">B</span>
+            Branco
+        </button>
+        <button id="botao3" class="opcao" type="submit" name="res">
+            <span class="botao">C</span>
+            Ciano
+        </button>
+        <button id="botao4" class="opcao" type="submit" name="res">
+            <span class="botao">D</span>
+            Roxo
+        </button>
     </div>
 
     <script src="js/script.js"></script>

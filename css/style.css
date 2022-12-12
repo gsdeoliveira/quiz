@@ -163,7 +163,7 @@ body {
 
 .animacao-pergunta {
     /*----------ANIMAÇÃO ENTRADA DAS PERGUNTAS----------*/
-    animation: animacaoPergunta 0.9s linear 0s normal none;
+    animation: animacaoPergunta 0.8s linear 0s normal none;
 }
 
 @keyframes animacaoPergunta {

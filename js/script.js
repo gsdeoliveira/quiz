@@ -9,8 +9,6 @@ function botaoIniciar() {
 
 
 
-
-
 var questoes = []
 questoes['questao1'] = []
 questoes['questao1']['pergunta'] = 'Qual a minha cor favorita?'
@@ -137,18 +135,33 @@ let contadorQuestao = 1
 function verificaAlternativa(botaoEscolhido) {
     var botaoEscolhido = document.getElementById(botaoEscolhido)
     if (botaoEscolhido.textContent.includes(questoes['questao' + contadorQuestao]['resposta'])) {
-        alert('CERTO!')
-        contadorQuestao += 1
-        pularPagina(contadorQuestao)
+        botaoEscolhido.style.background = '#1DD074'
+        setTimeout(function () {
+            botaoEscolhido.style.background = 'white'
+            perguntas.style.display = 'none'
+            contadorQuestao += 1
+            pularPagina(contadorQuestao)
+        }, 500);
+
     }
     else {
-        alert('ERRADO!')
-        contadorQuestao += 1
-        pularPagina(contadorQuestao)
+        botaoEscolhido.style.background = '#EA4C4D'
+        setTimeout(function () {
+            botaoEscolhido.style.background = 'white'
+            perguntas.style.display = 'none'
+            contadorQuestao += 1
+            pularPagina(contadorQuestao)
+        }, 500);
+
+
     }
 }
 
 function pularPagina(contadorQuestao) {
+
+    setTimeout(removeAnimacao, 1);
+
+
     if (contadorQuestao <= 15) {
         var titulo = document.getElementById('numero-pergunta')
         titulo.innerHTML = 'Pergunta N°' + contadorQuestao
@@ -170,20 +183,7 @@ function pularPagina(contadorQuestao) {
     }
 }
 
-
-/*
-
-var element = document.getElementById('botao1');
-console.log(questoes)
-
-
-element.innerHTML = "Pergunta N°" + questoes['questao' + 1]['alternativa1'] + "<span class='botao'>A</span>"
-var element2 = document.getElementById('botao2');
-console.log(element2.textContent)
-
-
-if (element2.textContent.includes(questoes['questao15']['alternativa4'])) {
-    alert('oi')
+function removeAnimacao() {
+    perguntas.style.display = 'block'
+    perguntas.classList.add('animacao-pergunta')
 }
-
-*/

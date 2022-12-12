@@ -1,10 +1,24 @@
 var container = document.getElementById('container')
 var perguntas = document.getElementById('perguntas')
+var nome = document.getElementById('name')
+var botaoPrincipal = document.getElementById('btn')
+var row = document.getElementById('row')
+
 
 function botaoIniciar() {
-    container.style.display = 'none'
-    perguntas.classList.add('animacao-pergunta')
-    perguntas.style.display = 'block'
+    if (nome.value.trim() != '') {
+        container.style.display = 'none'
+        perguntas.classList.add('animacao-pergunta')
+        perguntas.style.display = 'block'
+    }
+
+    else {
+        nome.style.border = '2px solid red'
+        nome.style.color = 'red'
+        row.style.border = 'none'
+        botaoPrincipal.style.border = '2px solid black'
+    }
+
 }
 
 
@@ -137,31 +151,45 @@ function verificaAlternativa(botaoEscolhido) {
     if (botaoEscolhido.textContent.includes(questoes['questao' + contadorQuestao]['resposta'])) {
         botaoEscolhido.style.background = '#1DD074'
         setTimeout(function () {
-            botaoEscolhido.style.background = 'white'
-            perguntas.style.display = 'none'
-            contadorQuestao += 1
-            pularPagina(contadorQuestao)
-        }, 500);
+            if (contadorQuestao <= 15) {
+                botaoEscolhido.style.background = 'white'
+                perguntas.style.display = 'none'
+                pularPagina(contadorQuestao)
+            }
+            else {
+                perguntas.style.display = 'none'
+            }
+        }, 1000);
 
     }
     else {
         botaoEscolhido.style.background = '#EA4C4D'
         setTimeout(function () {
-            botaoEscolhido.style.background = 'white'
-            perguntas.style.display = 'none'
-            contadorQuestao += 1
-            pularPagina(contadorQuestao)
-        }, 500);
+            if (contadorQuestao <= 15) {
+                botaoEscolhido.style.background = 'white'
+                perguntas.style.display = 'none'
+                perguntas.classList.remove('shakeerror')
+                pularPagina(contadorQuestao)
+            }
+            else {
+                perguntas.style.display = 'none'
+            }
+        }, 1500);
 
+
+        setTimeout(shakeError, 1);
 
     }
+
+    contadorQuestao += 1
+
 }
 
 function pularPagina(contadorQuestao) {
 
     setTimeout(removeAnimacao, 1);
 
-
+    console.log(contadorQuestao)
     if (contadorQuestao <= 15) {
         var titulo = document.getElementById('numero-pergunta')
         titulo.innerHTML = 'Pergunta N°' + contadorQuestao
@@ -181,9 +209,16 @@ function pularPagina(contadorQuestao) {
         var opcao4 = document.getElementById('botao4')
         opcao4.innerHTML = questoes['questao' + contadorQuestao]['alternativa4'] + "<span class='botao'>D</span>"
     }
+
+
+
 }
 
 function removeAnimacao() {
     perguntas.style.display = 'block'
     perguntas.classList.add('animacao-pergunta')
+}
+
+function shakeError() {
+    perguntas.classList.add('shakeerror')
 }

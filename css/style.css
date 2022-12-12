@@ -87,8 +87,6 @@ body {
     justify-content: center;
     display: none;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 1.6rem;
     padding: 2rem;
 }
@@ -163,7 +161,7 @@ body {
 
 .animacao-pergunta {
     /*----------ANIMAÇÃO ENTRADA DAS PERGUNTAS----------*/
-    animation: animacaoPergunta 0.8s linear 0s normal none;
+    animation: animacaoPergunta 0.5s linear 0s normal none;
 }
 
 @keyframes animacaoPergunta {
@@ -173,6 +171,37 @@ body {
 
     to {
         left: 0;
+    }
+}
+
+.shakeerror {
+
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+
+}
+
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
     }
 }
 

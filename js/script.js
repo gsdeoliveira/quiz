@@ -243,5 +243,5 @@ function finalizar() {
     perguntas.style.display = 'none'
     telaFinal.style.display = 'block'
     nameFinal.innerHTML = "Gabriel"
-    acertos.innerHTML = numeroAcertos + '/15'
+    acertos.innerHTML = '/15'
 }

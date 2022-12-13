@@ -11,6 +11,9 @@ var opcao4 = document.getElementById('botao4')
 var telaFinal = document.getElementById('tela-final')
 var acertos = document.getElementById('acertos')
 var formulario = document.getElementById('formulario')
+var progresso = document.getElementById('progresso')
+var pergunta = document.getElementById('pergunta')
+var titulo = document.getElementById('numero-pergunta')
 
 
 function botaoIniciar() {
@@ -169,6 +172,15 @@ function verificaAlternativa(botaoEscolhido) {
             if (contadorQuestao <= 15) {
                 botaoEscolhido.style.background = 'white'
                 perguntas.style.display = 'none'
+                progresso.style.setProperty('--contentProgresso', "'" + contadorQuestao + '/15' + "'")
+                var porcentagemProgresso = (contadorQuestao - 1) * 6.4 + 10
+                progresso.style.setProperty('--width-progresso', porcentagemProgresso + '%')
+                if (contadorQuestao == 15) {
+                    progresso.style.setProperty('--width-progresso', 100 + '%')
+                }
+                else {
+                    progresso.style.setProperty('--width-progresso', porcentagemProgresso + '%')
+                }
                 pularPagina(contadorQuestao)
             }
             else {
@@ -189,6 +201,16 @@ function verificaAlternativa(botaoEscolhido) {
                 botaoEscolhido.style.background = 'white'
                 perguntas.style.display = 'none'
                 perguntas.classList.remove('shakeerror')
+                progresso.style.setProperty('--contentProgresso', "'" + contadorQuestao + '/15' + "'")
+                var porcentagemProgresso = (contadorQuestao - 1) * 6.4 + 10
+                progresso.style.setProperty('--width-progresso', porcentagemProgresso + '%')
+                if (contadorQuestao == 15) {
+                    progresso.style.setProperty('--width-progresso', 100 + '%')
+                }
+                else {
+                    progresso.style.setProperty('--width-progresso', porcentagemProgresso + '%')
+                }
+                pularPagina(contadorQuestao)
                 pularPagina(contadorQuestao)
             }
             else {
@@ -212,13 +234,8 @@ function pularPagina(contadorQuestao) {
     setTimeout(removeAnimacao, 1);
 
     if (contadorQuestao <= 15) {
-        var titulo = document.getElementById('numero-pergunta')
         titulo.innerHTML = 'Pergunta N°' + contadorQuestao
-
-        var pergunta = document.getElementById('pergunta')
         pergunta.innerHTML = questoes['questao' + contadorQuestao]['pergunta']
-
-
         opcao1.innerHTML = questoes['questao' + contadorQuestao]['alternativa1'] + "<span class='botao'>A</span>"
         opcao2.innerHTML = questoes['questao' + contadorQuestao]['alternativa2'] + "<span class='botao'>B</span>"
         opcao3.innerHTML = questoes['questao' + contadorQuestao]['alternativa3'] + "<span class='botao'>C</span>"

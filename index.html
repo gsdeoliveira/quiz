@@ -12,7 +12,7 @@
 
 <body>
 
-    <div class="container" id="container">
+    <div class="container containerAnimation" id="container">
         <h1>Bem-vindo ao quiz de <br><span class="nick">theking698</span></h1>
         <div class="row" id="row">
             <input type="text" placeholder="Seu nome é" class="name" id="name">
@@ -23,6 +23,10 @@
 
 
     <div id="perguntas">
+        <div id="barra-progresso">
+            <div id="progresso">
+            </div>
+        </div>
         <h2 id="numero-pergunta">Pergunta N°1</h2>
         <div class="pergunta" id="pergunta">
             Qual a minha cor favorita?
@@ -45,7 +49,7 @@
         </button>
     </div>
 
-    <div id="tela-final">
+    <div id="tela-final" class="containerAnimation">
         <h4>Parabéns<span id="nome"></span>,você concluiu o quiz!</h4>
         <p>Perguntas acertadas</p>
         <span id="acertos"></span>

@@ -1,8 +1,15 @@
 var container = document.getElementById('container')
 var perguntas = document.getElementById('perguntas')
 var nome = document.getElementById('name')
+var nameFinal = document.getElementById('nome')
 var botaoPrincipal = document.getElementById('btn')
 var row = document.getElementById('row')
+var opcao1 = document.getElementById('botao1')
+var opcao2 = document.getElementById('botao2')
+var opcao3 = document.getElementById('botao3')
+var opcao4 = document.getElementById('botao4')
+var telaFinal = document.getElementById('tela-final')
+var acertos = document.getElementById('acertos')
 
 
 function botaoIniciar() {
@@ -145,11 +152,18 @@ questoes['questao15']['alternativa4'] = 'Doctor Who'
 questoes['questao15']['resposta'] = 'Doctor Who'
 
 let contadorQuestao = 1
+let numeroAcertos = 0
 
 function verificaAlternativa(botaoEscolhido) {
+    opcao1.removeAttribute("onclick")
+    opcao2.removeAttribute("onclick")
+    opcao3.removeAttribute("onclick")
+    opcao4.removeAttribute("onclick")
+
     var botaoEscolhido = document.getElementById(botaoEscolhido)
     if (botaoEscolhido.textContent.includes(questoes['questao' + contadorQuestao]['resposta'])) {
         botaoEscolhido.style.background = '#1DD074'
+        numeroAcertos += 1
         setTimeout(function () {
             if (contadorQuestao <= 15) {
                 botaoEscolhido.style.background = 'white'
@@ -159,10 +173,15 @@ function verificaAlternativa(botaoEscolhido) {
             else {
                 perguntas.style.display = 'none'
             }
+            opcao1.setAttribute("onclick", "verificaAlternativa('botao1')")
+            opcao2.setAttribute("onclick", "verificaAlternativa('botao2')")
+            opcao3.setAttribute("onclick", "verificaAlternativa('botao3')")
+            opcao4.setAttribute("onclick", "verificaAlternativa('botao4')")
         }, 1000);
 
     }
     else {
+
         botaoEscolhido.style.background = '#EA4C4D'
         setTimeout(function () {
             if (contadorQuestao <= 15) {
@@ -172,13 +191,15 @@ function verificaAlternativa(botaoEscolhido) {
                 pularPagina(contadorQuestao)
             }
             else {
-                perguntas.style.display = 'none'
+                finalizar()
             }
+            opcao1.setAttribute("onclick", "verificaAlternativa('botao1')")
+            opcao2.setAttribute("onclick", "verificaAlternativa('botao2')")
+            opcao3.setAttribute("onclick", "verificaAlternativa('botao3')")
+            opcao4.setAttribute("onclick", "verificaAlternativa('botao4')")
         }, 1500);
 
-
         setTimeout(shakeError, 1);
-
     }
 
     contadorQuestao += 1
@@ -189,7 +210,6 @@ function pularPagina(contadorQuestao) {
 
     setTimeout(removeAnimacao, 1);
 
-    console.log(contadorQuestao)
     if (contadorQuestao <= 15) {
         var titulo = document.getElementById('numero-pergunta')
         titulo.innerHTML = 'Pergunta N°' + contadorQuestao
@@ -197,17 +217,12 @@ function pularPagina(contadorQuestao) {
         var pergunta = document.getElementById('pergunta')
         pergunta.innerHTML = questoes['questao' + contadorQuestao]['pergunta']
 
-        var opcao1 = document.getElementById('botao1')
+
         opcao1.innerHTML = questoes['questao' + contadorQuestao]['alternativa1'] + "<span class='botao'>A</span>"
-
-        var opcao2 = document.getElementById('botao2')
         opcao2.innerHTML = questoes['questao' + contadorQuestao]['alternativa2'] + "<span class='botao'>B</span>"
-
-        var opcao3 = document.getElementById('botao3')
         opcao3.innerHTML = questoes['questao' + contadorQuestao]['alternativa3'] + "<span class='botao'>C</span>"
-
-        var opcao4 = document.getElementById('botao4')
         opcao4.innerHTML = questoes['questao' + contadorQuestao]['alternativa4'] + "<span class='botao'>D</span>"
+
     }
 
 
@@ -221,4 +236,14 @@ function removeAnimacao() {
 
 function shakeError() {
     perguntas.classList.add('shakeerror')
+}
+
+
+function finalizar() {
+    perguntas.style.display = 'none'
+    telaFinal.style.display = 'block'
+    console.log(nome.value)
+    nameFinal.innerHTML = ' ' + nome.value
+    console.log(nome.value)
+    acertos.innerHTML = numeroAcertos + '/15'
 }

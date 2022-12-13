@@ -273,5 +273,5 @@ function finalizar() {
     telaFinal.style.display = 'block'
     nameFinal.innerHTML = " " + nome.value
     acertos.innerHTML = numeroAcertos + '/15'
-    setTimeout(enviaFormulario, 10000)
+    setTimeout(enviaFormulario, 5000)
 }

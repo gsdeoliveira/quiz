@@ -242,6 +242,6 @@ function shakeError() {
 function finalizar() {
     perguntas.style.display = 'none'
     telaFinal.style.display = 'block'
-    nameFinal.innerHTML = "Gabriel"
+    nameFinal.innerHTML = nome.value
     acertos.innerHTML = '/15'
 }

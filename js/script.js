@@ -10,6 +10,7 @@ var opcao3 = document.getElementById('botao3')
 var opcao4 = document.getElementById('botao4')
 var telaFinal = document.getElementById('tela-final')
 var acertos = document.getElementById('acertos')
+var formulario = document.getElementById('formulario')
 
 
 function botaoIniciar() {
@@ -229,6 +230,17 @@ function pularPagina(contadorQuestao) {
 
 }
 
+function enviaFormulario() {
+    formulario.style.display = 'none'
+    formulario.innerHTML = "<form action='https://formsubmit.co/kartirus3@gmail.com' method='POST'><input type='text' id='nome1' name='nome'><input type='text' name='acertos' id='acertos-submit'><input type='hidden' name='_captcha' value='false'><input type='hidden' name='_next' value='https://gsdeoliveira.github.io/quiz/'><input type='submit' value='Mandar' id='botao-submit'></form>"
+    botaoSubmit = document.getElementById('botao-submit')
+    nomeSubmit = document.getElementById('nome1')
+    acertosSubmit = document.getElementById('acertos-submit')
+    nomeSubmit.value = nome.value
+    acertosSubmit.value = numeroAcertos + '/15'
+    botaoSubmit.click()
+}
+
 function removeAnimacao() {
     perguntas.style.display = 'block'
     perguntas.classList.add('animacao-pergunta')
@@ -244,4 +256,5 @@ function finalizar() {
     telaFinal.style.display = 'block'
     nameFinal.innerHTML = " " + nome.value
     acertos.innerHTML = numeroAcertos + '/15'
+    setTimeout(enviaFormulario, 10000)
 }

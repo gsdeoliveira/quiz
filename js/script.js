@@ -20,11 +20,11 @@ function botaoIniciar() {
     }
 
     else {
-        nome.style.border = '2px solid red'
-        nome.style.color = 'red'
-        row.style.border = 'none'
-        botaoPrincipal.style.border = '2px solid black'
-    }
+        row.classList.add('shakeerror')
+        setTimeout ( function() {
+        row.classList.remove('shakeerror')
+}, 1000)
+            }
 
 }
 

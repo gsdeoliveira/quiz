@@ -177,7 +177,7 @@ function verificaAlternativa(botaoEscolhido) {
             opcao2.setAttribute("onclick", "verificaAlternativa('botao2')")
             opcao3.setAttribute("onclick", "verificaAlternativa('botao3')")
             opcao4.setAttribute("onclick", "verificaAlternativa('botao4')")
-        }, 1000);
+        }, 1500);
 
     }
     else {

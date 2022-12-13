@@ -171,7 +171,7 @@ function verificaAlternativa(botaoEscolhido) {
                 pularPagina(contadorQuestao)
             }
             else {
-                perguntas.style.display = 'none'
+                finalizar()
             }
             opcao1.setAttribute("onclick", "verificaAlternativa('botao1')")
             opcao2.setAttribute("onclick", "verificaAlternativa('botao2')")
@@ -243,5 +243,5 @@ function finalizar() {
     perguntas.style.display = 'none'
     telaFinal.style.display = 'block'
     nameFinal.innerHTML = " " + nome.value
-    acertos.innerHTML = númeroAcertos + '/15'
+    acertos.innerHTML = numeroAcertos + '/15'
 }

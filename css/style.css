@@ -1,5 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/*----------ANIMAÇÕES----------*/
+@keyframes containerAnimation {
+    from {
+        margin-top: -100%;
+    }
+
+    to {
+        margin-top: 0px;
+    }
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes animacaoPergunta {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+@keyframes animationArrow {
+    50% {margin-left: 5px;}
+    100% {margin-left: 0px;}
+}
+
 
 * {
     padding: 0;
@@ -14,6 +64,8 @@ body {
     font-family: 'Press Start 2P', cursive;
     font-size: 62.5%;
 }
+
+/*----------TELA INICIAL----------*/
 
 
 .container {
@@ -33,16 +85,6 @@ body {
 
 .containerAnimation {
     animation: containerAnimation 0.8s linear 0s normal none;
-}
-
-@keyframes containerAnimation {
-    from {
-        margin-top: -100%;
-    }
-
-    to {
-        margin-top: 0px;
-    }
 }
 
 .container h1 {
@@ -84,6 +126,9 @@ body {
     border-left: 2px solid black;
     cursor: pointer;
 }
+
+/*----------TELA DE PERGUNTAS----------*/
+
 
 #perguntas {
     width: 50%;
@@ -165,19 +210,9 @@ body {
 }
 
 .animacao-pergunta {
-    /*----------ANIMAÇÃO ENTRADA DAS PERGUNTAS----------*/
     animation: animacaoPergunta 0.5s linear 0s normal none;
 }
 
-@keyframes animacaoPergunta {
-    from {
-        left: -100%;
-    }
-
-    to {
-        left: 0;
-    }
-}
 
 .shakeerror {
 
@@ -185,30 +220,7 @@ body {
 
 }
 
-
-@keyframes shake {
-
-    10%,
-    90% {
-        transform: translate3d(-1px, 0, 0);
-    }
-
-    20%,
-    80% {
-        transform: translate3d(2px, 0, 0);
-    }
-
-    30%,
-    50%,
-    70% {
-        transform: translate3d(-4px, 0, 0);
-    }
-
-    40%,
-    60% {
-        transform: translate3d(4px, 0, 0);
-    }
-}
+/*----------TELA FINAL----------*/
 
 #tela-final {
     display: none;
@@ -244,11 +256,6 @@ body {
 .animationArrow {
     animation: animationArrow 2s infinite;
 
-}
-
-@keyframes animationArrow {
-    50% {margin-left: 5px;}
-    100% {margin-left: 0px;}
 }
 
 #barra-progresso {
